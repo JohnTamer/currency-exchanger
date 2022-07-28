@@ -8,6 +8,9 @@ const BASE_URL_To =
 export const Exchanger = () => {
   const [fromCurrencyOption, setFromCurrencyOption] = useState([]);
   const [toCurrencyOption, setToCurrencyOption] = useState([]);
+  const [fromValue, setFromValue] = useState("EUR");
+  const [toValue, setToValue] = useState("USD");
+  const [exchangeRate, setExchangeRate] = useState();
   console.log(fromCurrencyOption);
   useEffect(() => {
     axios
@@ -23,6 +26,34 @@ export const Exchanger = () => {
       setToCurrencyOption([...Object.keys(response.data.conversion_rates)]);
     });
   }, []);
+
+  const fromChangerHandler = (event) => {
+    setFromValue(event.target.value);
+  };
+  const toChangeHandler = (event) => {
+    setToValue(event.target.value);
+  };
+  // useEffect(() => {
+  //   const exchangeHandler = async () => {
+  //     const response = await axios.get(
+  //       `https://v6.exchangerate-api.com/v6/YOUR-API-KEY/pair/${fromValue}/${toValue}`
+  //     );
+  //     console.log(response.data);
+  //   };
+  //   exchangeHandler();
+  // });
+  const exchangeHandler = () => {
+    axios
+      .get(
+        `https://v6.exchangerate-api.com/v6/b3a5dde5ff3fa01bf5e615a8/pair/${fromValue}/${toValue}`
+      )
+      .then((response) => setExchangeRate(response.data.conversion_rate))
+      .catch((error) => console.log(error));
+    calculateResult();
+  };
+  const calculateResult = () => {
+    console.log(exchangeRate);
+  };
   return (
     <div className="exchanger">
       <div className="exchanger__left">
@@ -35,7 +66,7 @@ export const Exchanger = () => {
       <div className="exchanger__right">
         <div>
           <div className="exchanger__from__text">From</div>
-          <select className="exchanger__from">
+          <select className="exchanger__from" onChange={fromChangerHandler}>
             {fromCurrencyOption.map((option) => (
               <option key={option} value={option}>
                 {option}
@@ -45,7 +76,7 @@ export const Exchanger = () => {
         </div>
         <div>
           <div className="exchanger__to__text">To</div>
-          <select className="exchanger__to">
+          <select className="exchanger__to" onChange={toChangeHandler}>
             {toCurrencyOption.map((option) => (
               <option key={option} value={option}>
                 {option}
@@ -53,9 +84,11 @@ export const Exchanger = () => {
             ))}
           </select>
           <div>
-            <button className="exchanger__btn">convert</button>
+            <button className="exchanger__btn" onClick={exchangeHandler}>
+              convert
+            </button>
           </div>
-          <div className="exchanger__right__result">USD</div>
+          <div className="exchanger__right__result">USD </div>
         </div>
       </div>
     </div>
