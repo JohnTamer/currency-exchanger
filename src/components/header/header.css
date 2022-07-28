@@ -1,0 +1,30 @@
+.header {
+  width: 98%;
+  height: 10vh;
+  background-color: black;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  border: 2px solid red;
+}
+.header__img {
+  width: 20%;
+  height: 10vh;
+  background-color: #2a2a2a;
+}
+.header__links {
+  width: 80%;
+  height: 10vh;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 20px;
+}
+.header__btn {
+  padding: 7px;
+  margin-right: 10px;
+  border: 1px solid white;
+  background-color: #2a2a2a;
+  color: white;
+}
