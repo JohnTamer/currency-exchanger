@@ -11,6 +11,8 @@ export const Exchanger = () => {
   const [fromValue, setFromValue] = useState("EUR");
   const [toValue, setToValue] = useState("USD");
   const [exchangeRate, setExchangeRate] = useState();
+  const [amount, setAmount] = useState(1);
+  const [result, setResult] = useState(1);
   console.log(fromCurrencyOption);
   useEffect(() => {
     axios
@@ -25,7 +27,12 @@ export const Exchanger = () => {
     axios.get(BASE_URL_To).then((response) => {
       setToCurrencyOption([...Object.keys(response.data.conversion_rates)]);
     });
-  }, []);
+    axios
+      .get(
+        `https://v6.exchangerate-api.com/v6/b3a5dde5ff3fa01bf5e615a8/pair/${fromValue}/${toValue}`
+      )
+      .then((response) => setExchangeRate(response.data.conversion_rate));
+  }, [fromValue, toValue]);
 
   const fromChangerHandler = (event) => {
     setFromValue(event.target.value);
@@ -33,34 +40,28 @@ export const Exchanger = () => {
   const toChangeHandler = (event) => {
     setToValue(event.target.value);
   };
-  // useEffect(() => {
-  //   const exchangeHandler = async () => {
-  //     const response = await axios.get(
-  //       `https://v6.exchangerate-api.com/v6/YOUR-API-KEY/pair/${fromValue}/${toValue}`
-  //     );
-  //     console.log(response.data);
-  //   };
-  //   exchangeHandler();
-  // });
+
   const exchangeHandler = () => {
-    axios
-      .get(
-        `https://v6.exchangerate-api.com/v6/b3a5dde5ff3fa01bf5e615a8/pair/${fromValue}/${toValue}`
-      )
-      .then((response) => setExchangeRate(response.data.conversion_rate))
-      .catch((error) => console.log(error));
-    calculateResult();
+    setResult(exchangeRate * Number(amount));
   };
-  const calculateResult = () => {
-    console.log(exchangeRate);
+  const amountHandler = (event) => {
+    setAmount(event.target.value);
   };
+
   return (
     <div className="exchanger">
       <div className="exchanger__left">
         <div className="exchanger__left__amount">
           <p>Amount</p>
-          <input className="exchanger__input" type="number" />
-          <div className="exchanger__left__result">1 EUR = USD</div>
+          <input
+            className="exchanger__input"
+            type="number"
+            value={amount}
+            onChange={amountHandler}
+          />
+          <div className="exchanger__left__result">
+            {amount} {fromValue} = {toValue}
+          </div>
         </div>
       </div>
       <div className="exchanger__right">
@@ -88,7 +89,9 @@ export const Exchanger = () => {
               convert
             </button>
           </div>
-          <div className="exchanger__right__result">USD </div>
+          <div className="exchanger__right__result">
+            {result} : {toValue}
+          </div>
         </div>
       </div>
     </div>
