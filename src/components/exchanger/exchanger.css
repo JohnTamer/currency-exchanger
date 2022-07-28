@@ -1,0 +1,75 @@
+.exchanger {
+  width: 98%;
+  height: 30vh;
+  margin: auto;
+  margin-top: 10px;
+  background-color: #2a2a2a;
+  display: flex;
+  border: 1px solid blue;
+}
+.exchanger__left {
+  width: 30%;
+  height: 30vh;
+  background-color: #2a2a2a;
+  color: white;
+}
+.exchanger__right {
+  width: 60%;
+  height: 30vh;
+  background-color: #2a2a2a;
+  margin: auto;
+  display: flex;
+  color: white;
+}
+.exchanger__left__amount {
+  width: 100%;
+  margin-left: 30px;
+}
+.exchanger__input {
+  width: 70%;
+  height: 5vh;
+}
+.exchanger__left__result {
+  width: 70%;
+  margin-top: 70px;
+  height: 4vh;
+  border: 1px solid white;
+  background-color: #2a2a2a;
+  color: white;
+  text-align: center;
+  padding-top: 5px;
+}
+.exchanger__from {
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: right;
+  margin-left: 20px;
+}
+.exchanger__from__text {
+  margin-left: 20px;
+}
+.exchanger__to__text {
+  margin-left: 300px;
+}
+.exchanger__to {
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: right;
+  margin-left: 300px;
+}
+.exchanger__btn {
+  padding: 10px 150px;
+  background-color: blue;
+  margin-top: 10px;
+  margin-left: -150px;
+}
+.exchanger__right__result {
+  padding: 20px 150px;
+  background-color: #2a2a2a;
+  margin-top: 20px;
+  margin-left: -150px;
+  text-align: center;
+  border: 1px solid white;
+}
