@@ -1,18 +1,22 @@
 import "./exchanger.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import StateContext from "../../context/stateContext";
+import { useContext } from "react";
 const BASE_URL_from =
   "https://v6.exchangerate-api.com/v6/b3a5dde5ff3fa01bf5e615a8/latest/EUR";
 const BASE_URL_To =
   "https://v6.exchangerate-api.com/v6/b3a5dde5ff3fa01bf5e615a8/latest/USD";
 export const Exchanger = () => {
+  const { amount, setAmount } = useContext(StateContext);
   const [fromCurrencyOption, setFromCurrencyOption] = useState([]);
   const [toCurrencyOption, setToCurrencyOption] = useState([]);
   const [fromValue, setFromValue] = useState("EUR");
   const [toValue, setToValue] = useState("USD");
   const [exchangeRate, setExchangeRate] = useState();
-  const [amount, setAmount] = useState(1);
+  // const [amount, setAmount] = useState(1);
   const [result, setResult] = useState(1);
+
   console.log(fromCurrencyOption);
   useEffect(() => {
     axios
@@ -60,7 +64,7 @@ export const Exchanger = () => {
             onChange={amountHandler}
           />
           <div className="exchanger__left__result">
-            {amount} {fromValue} = {toValue}
+            {amount} {fromValue} = {result} {toValue}
           </div>
         </div>
       </div>

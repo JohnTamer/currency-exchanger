@@ -1,10 +1,12 @@
 import "./App.css";
 import { Home } from "./pages/home/home";
-
+import { StateProvider } from "./context/stateContext";
 function App() {
   return (
     <div className="app">
-      <Home />
+      <StateProvider>
+        <Home />
+      </StateProvider>
     </div>
   );
 }
