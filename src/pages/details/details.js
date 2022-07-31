@@ -4,6 +4,7 @@ import { useContext } from "react";
 import StateContext from "../../context/stateContext";
 import { Exchanger } from "../../components/exchanger/exchanger";
 import { Link } from "react-router-dom";
+import { Chart } from "../../components/chart/chart";
 
 export const Details = () => {
   const { fromValue } = useContext(StateContext);
@@ -20,6 +21,7 @@ export const Details = () => {
         </nav>
       </div>
       <Exchanger className="details__exchanger" />
+      <Chart />
     </div>
   );
 };

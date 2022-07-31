@@ -1,6 +1,6 @@
 .details {
   width: 100%;
-  height: 1000vh;
+  height: 150vh;
 }
 .details__div {
   margin-left: 15px;
@@ -21,6 +21,4 @@
 .details__nav {
   width: 100%;
   height: 100%;
-}
-.details__exchanger {
 }
