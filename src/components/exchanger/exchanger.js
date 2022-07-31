@@ -8,11 +8,12 @@ const BASE_URL_from =
 const BASE_URL_To =
   "https://v6.exchangerate-api.com/v6/b3a5dde5ff3fa01bf5e615a8/latest/USD";
 export const Exchanger = () => {
-  const { amount, setAmount } = useContext(StateContext);
+  const { amount, setAmount, fromValue, setFromValue, toValue, setToValue } =
+    useContext(StateContext);
   const [fromCurrencyOption, setFromCurrencyOption] = useState([]);
   const [toCurrencyOption, setToCurrencyOption] = useState([]);
-  const [fromValue, setFromValue] = useState("EUR");
-  const [toValue, setToValue] = useState("USD");
+  // const [fromValue, setFromValue] = useState("EUR");
+  // const [toValue, setToValue] = useState("USD");
   const [exchangeRate, setExchangeRate] = useState();
   // const [amount, setAmount] = useState(1);
   const [result, setResult] = useState(1);

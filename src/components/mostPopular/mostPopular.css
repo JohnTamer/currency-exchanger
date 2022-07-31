@@ -1,0 +1,20 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-top: 10px;
+  margin-left: 15px;
+  background-color: whitesmoke;
+  gap: 2em;
+  width: 98%;
+}
+.one {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid blue;
+  color: white;
+  text-align: center;
+  padding-top: 35px;
+}
