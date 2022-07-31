@@ -1,3 +1,4 @@
+// V.IMP ==> I TRIED TO USE FIXER.IO API BUT IT DOESN'T WORK THERE IS A PROBELM WITH IT SO I USED EXCHANGERATE API <== V.IMP
 import { useContext } from "react";
 import StateContext from "../../context/stateContext";
 import "./header.css";

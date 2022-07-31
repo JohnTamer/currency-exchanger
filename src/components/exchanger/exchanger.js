@@ -1,3 +1,5 @@
+// V.IMP ==> I TRIED TO USE FIXER.IO API BUT IT DOESN'T WORK THERE IS A PROBELM WITH IT SO I USED EXCHANGERATE API <== V.IMP
+
 import "./exchanger.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
