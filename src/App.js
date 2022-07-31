@@ -2,7 +2,7 @@ import "./App.css";
 import { Home } from "./pages/home/home";
 import { StateProvider } from "./context/stateContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Details } from "./pages/details";
+import { Details } from "./pages/details/details";
 function App() {
   return (
     <div className="app">
