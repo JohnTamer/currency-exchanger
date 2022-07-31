@@ -20,7 +20,7 @@ export const Chart = () => {
   //       `https://v6.exchangerate-api.com/v6/b3a5dde5ff3fa01bf5e615a8/history/ALL/2020/2/22`
   //     )
   //     .then((response) => {
-  //       console.log(response.data.rates);
+  //       console.log(response.data.conversion_rates);
 
   //       setChart(response.data.conversion_rates);
   //     })
